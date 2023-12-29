@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus Detected</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+        #dialogce {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        #response {
+            margin-top: 20px;
+        }
+
+        #spaghettiRain {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #spaghettiRain img {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('https://i.imgur.com/9fZGu5m.png') no-repeat center center;
+            background-size: contain;
+            animation: spaghettiAnimation 3s linear infinite;
+        }
+
+        @keyframes spaghettiAnimation {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Virus Detected</h1>
+
+    <button onclick="showDialog()">Clean up</button>
+
+    <div id="dialog">
+        <h2>Alert!</h2>
+        <p>Virus detected &#x1F496;</p>
+        <p>Will you always love Shipra? &#x1F496;</p>
+        <button onclick="hooray()">Yes</button>
+    </div>
+  
+
+    <div id="response">
+        <!-- Response will be displayed here -->
+    </div>
+
+    <div id="spaghettiRain"></div>
+    <div id="dialogce">
+        <h2>Hooray!!!</h2>
+        <p>Celebration time!</p>
+    </div>
+
+    <script>
+        function showDialog() {
+            var dialog = document.getElementById('dialog');
+            dialog.style.display = 'block';
+        }
+
+        function hooray() {
+            hideDialogvirus();
+            var spaghettiRain = document.getElementById('spaghettiRain');
+            var dialog = document.getElementById('dialogce');
+            spaghettiRain.innerHTML = '';
+            showDialoghooray();
+
+            for (let i = 0; i < 50; i++) {
+                createSpaghetti();
+            }
+
+            spaghettiRain.style.display = 'block';
+
+            setTimeout(function () {
+                var dialog = document.getElementById('dialog');
+                dialog.style.display = 'none';
+                hideDialoghooray();
+                spaghettiRain.style.display = 'none';
+            }, 3000); // Hide the dialog and spaghetti rain after 3 seconds
+        }
+
+        function createSpaghetti() {
+            var spaghetti = document.createElement('img');
+            spaghetti.src = 'https://i.imgur.com/9fZGu5m.png';
+            spaghetti.style.left = Math.random() * window.innerWidth + 'px';
+            spaghetti.style.animationDuration = Math.random() * 2 + 1 + 's'; // Random duration between 1 and 3 seconds
+            document.getElementById('spaghettiRain').appendChild(spaghetti);
+        }
+        function startCelebration() {
+            hideDialogvirus();
+            var spaghettiRain = document.getElementById('spaghettiRain');
+            var dialog = document.getElementById('dialog');
+
+            spaghettiRain.innerHTML = '';
+            showDialoghooray();
+
+            for (let i = 0; i < 50; i++) {
+                createSpaghetti();
+            }
+
+            spaghettiRain.style.display = 'block';
+
+            setTimeout(function () {
+                hideDialog();
+                spaghettiRain.style.display = 'none';
+            }, 3000); // Hide the dialog and spaghetti rain after 3 seconds
+        }
+        function showDialoghooray() {
+            var dialog = document.getElementById('dialogce');
+            dialog.style.display = 'block';
+        }
+
+        function hideDialog() {
+            var dialog = document.getElementById('dialogce');
+            dialog.style.display = 'none';
+        }
+        function hideDialogvirus() {
+            var dialog = document.getElementById('dialog');
+            dialog.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
